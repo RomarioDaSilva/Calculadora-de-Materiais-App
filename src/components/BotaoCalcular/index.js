@@ -7,7 +7,7 @@ class BotaoCalcular extends Component {
     return (
       <Container>
         <Botao>
-          <BotaoTexto>Calcular</BotaoTexto>
+          <BotaoTexto> Calcular </BotaoTexto>
         </Botao>
       </Container>
     );
