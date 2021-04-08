@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
 import Header from "../../components/Header";
+import { Modalize } from 'react-native-modalize';
+
 import {
   Container,
   ContainerBox,
@@ -16,7 +18,6 @@ import {
   TextoTitulo,
   TextoResul,
 } from "./styles";
-import { Modalize } from "react-native-modalize";
 
 export default function Laje() {
 

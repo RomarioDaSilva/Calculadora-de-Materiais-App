@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import { Modalize } from 'react-native-modalize';
 
 import {
   Container,
@@ -14,7 +15,7 @@ import {
   BotaoModal,
   BotaoModalTexto,
 } from './styles';
-import {Modalize} from 'react-native-modalize';
+
 
 export default function TelaInicial() {
   const modalizeRef = useRef(null);

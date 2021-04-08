@@ -16,7 +16,8 @@ import {
   TextoTitulo,
   TextoResul,
 } from "./styles";
-import { Modalize } from "react-native-modalize";
+import { Modalize } from 'react-native-modalize';
+
 
 export default function TijoloDezenove() {
 
