@@ -15,13 +15,6 @@ export const ContainerBox = styled.View`
   align-items: center;
 `;
 
-export const Box = styled.View`
-  background-color: #fff;
-  border-radius: 20px;
-  margin: 20px;
-  align-items: center;
-`;
-
 export const TextoTitulo = styled.Text`
   margin-top: -50px;
   margin-bottom: 20px;
@@ -29,11 +22,17 @@ export const TextoTitulo = styled.Text`
   color: #fff;
 `;
 
+export const Box = styled.View`
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 20px;
+  align-items: center;
+`;
+
 export const Texto = styled.Text`
   font-size: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 15px;
+  margin-left: 10px;
+  margin-top: 20px;
 `;
 
 export const Botao = styled.TouchableOpacity`
@@ -57,15 +56,15 @@ export const Input = styled.TextInput`
   padding: 5px;
   background-color: #c4c4c4;
   height: 40px;
-  width: 100px;
-  margin-right: 20px;
+  width: 90%;
+  margin-top: 10px;
+  border-radius: 10px;
 `;
 
 export const BoxInput = styled.View`
   align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 10px;
 `;
 
 export const ContainerModal = styled.View`
@@ -101,4 +100,9 @@ export const BotaoModal = styled.TouchableOpacity`
 
 export const BotaoModalTexto = styled.Text`
   font-size: 20px;
+`;
+
+export const TextoResul = styled.Text`
+  font-size: 25px;
+  font-weight: bold;
 `;

@@ -31,7 +31,7 @@ export const Box = styled.View`
 
 export const Texto = styled.Text`
   font-size: 20px;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-top: 20px;
 `;
 
@@ -56,23 +56,22 @@ export const Input = styled.TextInput`
   padding: 5px;
   background-color: #c4c4c4;
   height: 40px;
-  width: 100px;
-  margin-right: 20px;
+  width: 90%;
+  margin-top: 10px;
+  border-radius: 10px;
+  
 `;
 
 export const BoxInput = styled.View`
   align-items: center;
   justify-content: space-between;
-  flex-direction: row;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const ContainerModal = styled.View`
   height: 600px;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
   padding: 10px;
 `;
 
@@ -85,7 +84,7 @@ export const ModalTitulo = styled.Text`
 export const ModalTexto = styled.Text`
   font-size: 22px;
   margin: 15px;
-  text-align: center;
+  align-items: center;
 `;
 
 export const BotaoModal = styled.TouchableOpacity`
@@ -100,4 +99,9 @@ export const BotaoModal = styled.TouchableOpacity`
 
 export const BotaoModalTexto = styled.Text`
   font-size: 20px;
+`;
+
+export const TextoResul = styled.Text`
+  font-size: 25px;
+  font-weight: bold;
 `;

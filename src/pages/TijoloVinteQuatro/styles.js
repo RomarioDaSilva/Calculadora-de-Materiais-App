@@ -13,19 +13,14 @@ export const ContainerBox = styled.View`
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   align-items: center;
-  padding-top: 20px;
 `;
+
 export const TextoTitulo = styled.Text`
   margin-top: -50px;
   margin-bottom: 20px;
   font-size: 25px;
   color: #fff;
-`;
 
-export const Texto = styled.Text`
-  font-size: 20px;
-  color: #000;
-  margin: 10px;
 `;
 
 export const Box = styled.View`
@@ -35,33 +30,42 @@ export const Box = styled.View`
   align-items: center;
 `;
 
-export const BoxInput = styled.View`
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 10px;
-  align-items: center;
-`;
-
-export const Input = styled.TextInput`
-  background-color: #c4c4c4;
-  width: 100px;
-  height: 45px;
-  border-radius: 10px;
+export const Texto = styled.Text`
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 20px;
 `;
 
 export const Botao = styled.TouchableOpacity`
   background-color: #000;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
   height: 50px;
   width: 250px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  margin: 20px;
+  border-radius: 50px;
 `;
 
 export const BotaoTexto = styled.Text`
-  font-size: 30px;
-  color: #FFF;
+  color: #fff;
+  font-size: 25px;
+  padding: 5px;
+`;
+
+export const Input = styled.TextInput`
+  justify-content: center;
+  padding: 5px;
+  background-color: #c4c4c4;
+  height: 40px;
+  width: 90%;
+  margin-top: 10px;
+  border-radius: 10px;
+`;
+
+export const BoxInput = styled.View`
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
 `;
 
 export const ContainerModal = styled.View`
@@ -99,3 +103,7 @@ export const BotaoModalTexto = styled.Text`
   font-size: 20px;
 `;
 
+export const TextoResul = styled.Text`
+  font-size: 25px;
+  font-weight: bold;
+`;

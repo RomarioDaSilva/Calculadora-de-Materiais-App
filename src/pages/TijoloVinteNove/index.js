@@ -3,17 +3,18 @@ import { SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
 import Header from "../../components/Header";
 import {
   Container,
-  Texto,
+  ContainerBox,
   Box,
-  Input,
-  BoxInput,
+  Texto,
   Botao,
   BotaoTexto,
-  ContainerBox,
-  TextoTitulo,
+  Input,
+  BoxInput,
   ContainerModal,
   ModalTitulo,
   ModalTexto,
+  TextoTitulo,
+  TextoResul,
 } from "./styles";
 import { Modalize } from "react-native-modalize";
 
@@ -23,6 +24,7 @@ export default function TijoloVinteNove() {
 
   function abrirModal() {
     modalizeRef.current?.open();
+    Keyboard.dismiss()
   }
 
   const [comp, setComp] = useState(0);
@@ -34,12 +36,12 @@ export default function TijoloVinteNove() {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
         <Header />
-        <TextoTitulo>Tijolo 9X19X24</TextoTitulo>
+        <TextoTitulo>Tijolo 9 X 19 X 29</TextoTitulo>
 
         <ContainerBox>
           <Box>
             <SafeAreaView>
-              <Texto>  Calcular tijolo de 19x24</Texto>
+              <Texto>Valores para calcular a quantidade de tijolos 9 x 19 x 29</Texto>
               <BoxInput>
                 <Texto>Comprimento da parede: </Texto>
                 <Input
@@ -76,12 +78,13 @@ export default function TijoloVinteNove() {
 
             <ModalTitulo>Resultado Final</ModalTitulo>
             <ModalTexto>
-              Tamanho Total do Parede: {totalParede}Mts²
+              Tamanho Total do Parede:
             </ModalTexto>
+            <TextoResul> {totalParede} mts²</TextoResul>
             <ModalTexto>
-              Quantidade Total do tijolos: {totalTijolos} un
+              Quantidade Total do tijolos:
             </ModalTexto>
-            
+            <TextoResul> {totalTijolos} un</TextoResul>
             <ModalTexto>
               
             </ModalTexto>

@@ -3,17 +3,18 @@ import { SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
 import Header from "../../components/Header";
 import {
   Container,
-  Texto,
+  ContainerBox,
   Box,
-  Input,
-  BoxInput,
+  Texto,
   Botao,
   BotaoTexto,
-  ContainerBox,
-  TextoTitulo,
+  Input,
+  BoxInput,
   ContainerModal,
   ModalTitulo,
   ModalTexto,
+  TextoTitulo,
+  TextoResul,
 } from "./styles";
 import { Modalize } from "react-native-modalize";
 
@@ -23,6 +24,7 @@ export default function Laje() {
 
   function abrirModal() {
     modalizeRef.current?.open();
+    Keyboard.dismiss()
   }
 
   const [comp, setComp] = useState(0);
@@ -30,6 +32,7 @@ export default function Laje() {
   const totalLaje = (comp * larg).toFixed(2);
   const vigas = (comp / 0.4).toFixed(0);
   const isopor = (totalLaje * 2.25).toFixed(0);
+
 
 
   return (
@@ -41,12 +44,12 @@ export default function Laje() {
         <ContainerBox>
           <Box>
             <SafeAreaView>
-              <Texto>  Calcular tamanho da Laje</Texto>
+              <Texto>Valores para calcular o tamanho de uma laje basica</Texto>
               <BoxInput>
                 <Texto>largura da laje: (viga) </Texto>
                 <Input
                   value={larg}
-                  onChangeText={(larg) => setLarg(larg)}
+                  onChangeText={(text) => setLarg(text)}
                   placeholder="Mts"
                   keyboardType="numeric"
                   returnKeyType="next"
@@ -55,7 +58,7 @@ export default function Laje() {
               </BoxInput>
 
               <BoxInput>
-                <Texto>Comprimento da laje: </Texto>
+                <Texto>Comprimento da laje:{"\n"} "lado oposto a viga" </Texto>
                 <Input
                   value={comp}
                   onChangeText={(comp) => setComp(comp)}
@@ -70,6 +73,7 @@ export default function Laje() {
             <Botao onPress={ abrirModal }>
               <BotaoTexto>Calcular</BotaoTexto>
             </Botao>
+            
           </Box>
         </ContainerBox>
 
@@ -78,19 +82,20 @@ export default function Laje() {
 
             <ModalTitulo>Resultado Final</ModalTitulo>
             <ModalTexto>
-              Laje de {larg}X{comp}
+              Laje de {larg} X {comp}
             </ModalTexto>
             <ModalTexto>
-              Tamanho Total da laje:{"\n"}{totalLaje}Mts².
+              Tamanho Total da laje:
             </ModalTexto>
+            <TextoResul>{totalLaje}Mts².</TextoResul>
             <ModalTexto>
-              Quantidade de vigas: {"\n"}{vigas} vigas com {larg} mts.
+              Quantidade de vigas:
             </ModalTexto>
-            
+            <TextoResul>{vigas} vigas com {larg} mts.</TextoResul>
             <ModalTexto>
-              Quantidade de isopor:{"\n"}{isopor} placas de 0,30x0,8x1,00.
+              Quantidade de isopor:
             </ModalTexto>
-
+            <TextoResul>{isopor} placas de 0,30x0,7x1,00.</TextoResul>
           </ContainerModal>
         </Modalize>
 

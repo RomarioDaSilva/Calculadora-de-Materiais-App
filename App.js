@@ -23,9 +23,16 @@ export default function App(){
   return(
     <NavigationContainer>
       <Stack.Navigator
-        /*drawerStyle = { {
-          backgroundColor : '#000' , 
-        } }*/
+   tabBarOptions={{
+    keyboardHidesTabBar: true,
+    showLabel: false,
+    style:{
+      backgroundColor: '#202225',
+      borderTopWidth: 0,
+    },
+
+    activeTintColor: '#FFF'
+  }}
       >
         <Stack.Screen name="TelaInicial" component={TelaInicial} />
         <Stack.Screen name="Home" component={Home}/>
