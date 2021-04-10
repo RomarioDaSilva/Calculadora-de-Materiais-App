@@ -1,28 +1,30 @@
 import React, {useRef, useState} from 'react';
-import {SafeAreaView, Keyboard, TouchableWithoutFeedback} from 'react-native';
+import {
+  SafeAreaView,
+  Keyboard,
+  TouchableWithoutFeedback,
+  ScrollView,
+} from 'react-native';
 import Header from '../../components/Header';
-import { Modalize } from 'react-native-modalize';
 
 import {
   Container,
-  ContainerBox,
   Box,
-  TextoTitulo,
   Texto,
   Botao,
   BotaoTexto,
   Input,
   BoxInput,
-  ContainerModal,
-  ModalTitulo,
-  ModalTexto,
+  TituloRel,
+  HeaderTitulo,
   TextoResul,
+  BoxResultado,
 } from './styles';
 
 export default function TelhaColonial() {
   const modalizeRef = useRef(null);
 
-  function abrirModal() {
+  function calcular() {
     modalizeRef.current?.open();
     Keyboard.dismiss()
   }
@@ -33,14 +35,14 @@ export default function TelhaColonial() {
   const totalRipas = (totalTelhado * 3.95).toFixed(2);
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
         <Header />
-        <TextoTitulo>Telha colonial</TextoTitulo>
-        <ContainerBox>
+        <HeaderTitulo>Telha Colonial</HeaderTitulo>
+        <ScrollView>
           <Box>
             <SafeAreaView>
-              <Texto>Calcular tamanho do telhado em metros quadrados ²:</Texto>
+            <Texto>Calcular tamanho do telhado em metros quadrados ²:</Texto>
               <BoxInput>
                 <Texto>Largura do telhado:</Texto>
                 <Input
@@ -65,33 +67,27 @@ export default function TelhaColonial() {
                 />
               </BoxInput>
             </SafeAreaView>
-            <Botao onPress={abrirModal}>
+            <Botao onPress={calcular}>
               <BotaoTexto>Calcular</BotaoTexto>
             </Botao>
           </Box>
-        </ContainerBox>
 
-        <Modalize
-          ref={modalizeRef}
-          snapPoint={500} /*o quanto vai abrir na tela o modal*/
-        >
-          <ContainerModal>
-            <ModalTitulo>Resultado final</ModalTitulo>
+          <BoxResultado>
+            <TituloRel>Resultado Final</TituloRel>
 
-            <ModalTexto>Total de metros do telhado:</ModalTexto>
+            <Texto>Total de metros do telhado:</Texto>
 
-            <TextoResul> {totalTelhado}mts²</TextoResul>
+            <TextoResul> {totalTelhado} mts².</TextoResul>
 
-            <ModalTexto>Total de telhas:</ModalTexto>
+            <Texto>Quantidade Total do telhas:</Texto>
 
             <TextoResul> {totalTelhas} un.</TextoResul>
 
-            <ModalTexto>Total de metros de ripas:</ModalTexto>
+            <Texto>Quantidade total de mts de ripas:</Texto>
 
-            <TextoResul> {totalRipas}mts.</TextoResul>
-            
-          </ContainerModal>
-        </Modalize>
+            <TextoResul> {totalRipas} mts².</TextoResul>
+          </BoxResultado>
+        </ScrollView>
       </Container>
     </TouchableWithoutFeedback>
   );

@@ -1,48 +1,41 @@
-import React, { useRef, useState } from "react";
-import { SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
-import Header from "../../components/Header";
-import { Modalize } from 'react-native-modalize';
+import React, {useRef, useState} from 'react';
+import {SafeAreaView, Keyboard, TouchableWithoutFeedback, ScrollView} from 'react-native';
+import Header from '../../components/Header';
 
 import {
   Container,
-  ContainerBox,
   Box,
   Texto,
   Botao,
   BotaoTexto,
   Input,
   BoxInput,
-  ContainerModal,
-  ModalTitulo,
-  ModalTexto,
-  TextoTitulo,
+  TituloRel,
+  HeaderTitulo,
   TextoResul,
-} from "./styles";
+  BoxResultado,
+} from './styles';
 
 export default function Laje() {
-
   const modalizeRef = useRef(null);
-
-  function abrirModal() {
-    modalizeRef.current?.open();
-    Keyboard.dismiss()
-  }
-
   const [comp, setComp] = useState(0);
   const [larg, setLarg] = useState(0);
   const totalLaje = (comp * larg).toFixed(2);
   const vigas = (comp / 0.4).toFixed(0);
   const isopor = (totalLaje * 2.25).toFixed(0);
+  const barras = (totalLaje / 3).toFixed(0);
 
-
+  function calcular() {
+    modalizeRef.current?.open();
+    Keyboard.dismiss();
+  }
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
         <Header />
-        <TextoTitulo>Laje de EPS(isopor)</TextoTitulo>
-
-        <ContainerBox>
+        <HeaderTitulo>Laje de EPS(isopor)</HeaderTitulo>
+        <ScrollView>
           <Box>
             <SafeAreaView>
               <Texto>Valores para calcular o tamanho de uma laje basica</Texto>
@@ -59,7 +52,7 @@ export default function Laje() {
               </BoxInput>
 
               <BoxInput>
-                <Texto>Comprimento da laje:{"\n"} "lado oposto a viga" </Texto>
+                <Texto>Comprimento da laje:{'\n'} "lado oposto a viga" </Texto>
                 <Input
                   value={comp}
                   onChangeText={(comp) => setComp(comp)}
@@ -69,37 +62,29 @@ export default function Laje() {
                   onSubmitEditing={() => Keyboard.dismiss()}
                 />
               </BoxInput>
-
             </SafeAreaView>
-            <Botao onPress={ abrirModal }>
+            <Botao onPress={calcular}>
               <BotaoTexto>Calcular</BotaoTexto>
             </Botao>
-            
           </Box>
-        </ContainerBox>
 
-        <Modalize ref={modalizeRef} snapPoint={500} /*o quanto vai abrir na tela o modal*/>
-          <ContainerModal>
-
-            <ModalTitulo>Resultado Final</ModalTitulo>
-            <ModalTexto>
+          <BoxResultado>
+            <TituloRel>Resultado Final</TituloRel>
+            <Texto>
               Laje de {larg} X {comp}
-            </ModalTexto>
-            <ModalTexto>
-              Tamanho Total da laje:
-            </ModalTexto>
+            </Texto>
+            <Texto>Tamanho Total da laje:</Texto>
             <TextoResul>{totalLaje}Mts².</TextoResul>
-            <ModalTexto>
-              Quantidade de vigas:
-            </ModalTexto>
-            <TextoResul>{vigas} vigas com {larg} mts.</TextoResul>
-            <ModalTexto>
-              Quantidade de isopor:
-            </ModalTexto>
+            <Texto>Quantidade de vigas:</Texto>
+            <TextoResul>
+              {vigas} vigas com {larg} mts.
+            </TextoResul>
+            <Texto>Quantidade de isopor:</Texto>
             <TextoResul>{isopor} placas de 0,30x0,7x1,00.</TextoResul>
-          </ContainerModal>
-        </Modalize>
-
+            <Texto>Quantidade de barras ferro para esteira de 40cmx40cm:</Texto>
+            <TextoResul>{barras} com 12mts</TextoResul>
+          </BoxResultado>
+        </ScrollView>
       </Container>
     </TouchableWithoutFeedback>
   );

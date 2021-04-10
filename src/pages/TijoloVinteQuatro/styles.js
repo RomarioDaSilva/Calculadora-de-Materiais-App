@@ -3,37 +3,30 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex: 1;
   align-items: center;
-  background-color: #310098;
-`;
-
-export const ContainerBox = styled.View`
-  height: 100%;
-  width: 100%;
   background-color: #160142;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  align-items: center;
+  padding: 15px;
 `;
 
-export const TextoTitulo = styled.Text`
-  margin-top: -50px;
+export const HeaderTitulo = styled.Text`
+  margin-top: -47px;
   margin-bottom: 20px;
   font-size: 25px;
   color: #fff;
-
 `;
 
 export const Box = styled.View`
   background-color: #fff;
   border-radius: 20px;
-  margin: 20px;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 export const Texto = styled.Text`
   font-size: 20px;
   margin-left: 10px;
   margin-top: 20px;
+  color: #000;
+  text-align: center;
 `;
 
 export const Botao = styled.TouchableOpacity`
@@ -60,6 +53,7 @@ export const Input = styled.TextInput`
   width: 90%;
   margin-top: 10px;
   border-radius: 10px;
+  text-align: center;
 `;
 
 export const BoxInput = styled.View`
@@ -68,42 +62,20 @@ export const BoxInput = styled.View`
   margin-top: 10px;
 `;
 
-export const ContainerModal = styled.View`
-  height: 600px;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
-`;
-
-export const ModalTitulo = styled.Text`
+export const TituloRel = styled.Text`
   font-size: 40px;
-  margin-bottom: 20px;
   margin-top: 10px;
-`;
-
-export const ModalTexto = styled.Text`
-  font-size: 22px;
-  margin: 15px;
-  text-align: center;
-`;
-
-export const BotaoModal = styled.TouchableOpacity`
-  justify-content: center;
-  align-items: center;
-  background-color: #00b0e8;
-  padding: 10px;
-  border-radius: 5px;
-  width: 90%;
-  margin-top: 20px;
-`;
-
-export const BotaoModalTexto = styled.Text`
-  font-size: 20px;
 `;
 
 export const TextoResul = styled.Text`
   font-size: 25px;
   font-weight: bold;
+`;
+
+export const BoxResultado = styled.View`
+  background-color: #FFF;
+  border-radius: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 `;

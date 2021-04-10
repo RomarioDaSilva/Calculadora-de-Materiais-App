@@ -1,28 +1,27 @@
-import React from "react";
-import { SafeAreaView } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { ScrollView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {
   Container,
   ContainerBox,
   TextoTitulo,
   Box,
-  BoxInput,
   Texto,
   Imagen,
-} from "./styles";
-import Header from "../../components/Header";
+} from './styles';
+import Header from '../../components/Header';
 
 export default function Home() {
   const navigation = useNavigation();
 
   function irTelhas() {
-    navigation.navigate("Telhas");
+    navigation.navigate('Telhas');
   }
   function irTijolos() {
-    navigation.navigate("Tijolos");
+    navigation.navigate('Tijolos');
   }
   function irLaje() {
-    navigation.navigate("Laje");
+    navigation.navigate('Laje');
   }
 
   return (
@@ -30,28 +29,25 @@ export default function Home() {
       <Header />
       <TextoTitulo>Bem Vindo!</TextoTitulo>
       <ContainerBox>
-        <Box>
+        <ScrollView>
+          <Box onPress={irTelhas}>
+            <Imagen source={require('../../images/Telhas.png')} />
+            <Texto>Telhas</Texto>
+          </Box>
 
-        <SafeAreaView>
-        <BoxInput onPress={irTelhas}>
-          <Imagen source={require("../../images/Telhas.png")} />
-          <Texto>Telhas</Texto>
-        </BoxInput>
+          <Box onPress={irTijolos}>
+            <Imagen
+              source={require('../../images/Tijolo8furos.png')}
+              resizeMode="contain"
+            />
+            <Texto>Tijolos</Texto>
+          </Box>
 
-        <BoxInput onPress={irTijolos}>
-          <Imagen
-            source={require("../../images/Tijolo8furos.png")}
-            resizeMode="contain"
-          />
-          <Texto>Tijolos</Texto>
-        </BoxInput>
-
-        <BoxInput onPress={irLaje}>
-          <Imagen source={require("../../images/Laje.png")} />
-          <Texto>Laje</Texto>
-        </BoxInput>
-        </SafeAreaView>
-        </Box>
+          <Box onPress={irLaje}>
+            <Imagen source={require('../../images/Laje.png')} />
+            <Texto>Laje</Texto>
+          </Box>
+        </ScrollView>
       </ContainerBox>
     </Container>
   );

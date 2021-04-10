@@ -1,23 +1,25 @@
-import React, { useRef, useState } from "react";
-import { SafeAreaView, Keyboard, TouchableWithoutFeedback } from "react-native";
-import Header from "../../components/Header";
+import React, {useRef, useState} from 'react';
+import {
+  SafeAreaView,
+  Keyboard,
+  TouchableWithoutFeedback,
+  ScrollView,
+} from 'react-native';
+import Header from '../../components/Header';
+
 import {
   Container,
-  ContainerBox,
   Box,
   Texto,
   Botao,
   BotaoTexto,
   Input,
   BoxInput,
-  ContainerModal,
-  ModalTitulo,
-  ModalTexto,
-  TextoTitulo,
+  TituloRel,
+  HeaderTitulo,
   TextoResul,
-} from "./styles";
-import { Modalize } from "react-native-modalize";
-
+  BoxResultado,
+} from './styles';
 export default function TijoloVinteNove() {
 
   const modalizeRef = useRef(null);
@@ -36,12 +38,13 @@ export default function TijoloVinteNove() {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
         <Header />
-        <TextoTitulo>Tijolo 9 X 19 X 29</TextoTitulo>
-
-        <ContainerBox>
+        <HeaderTitulo>Tijolo 9 X 19 X 29</HeaderTitulo>
+        <ScrollView>
           <Box>
             <SafeAreaView>
-              <Texto>Valores para calcular a quantidade de tijolos 9 x 19 x 29</Texto>
+              <Texto>
+                Valores para calcular a quantidade de tijolos 9 x 19 x 29
+              </Texto>
               <BoxInput>
                 <Texto>Comprimento da parede: </Texto>
                 <Input
@@ -65,33 +68,23 @@ export default function TijoloVinteNove() {
                   onSubmitEditing={() => Keyboard.dismiss()}
                 />
               </BoxInput>
-
             </SafeAreaView>
-            <Botao onPress={ abrirModal }>
+            <Botao onPress={abrirModal}>
               <BotaoTexto>Calcular</BotaoTexto>
             </Botao>
           </Box>
-        </ContainerBox>
+          <BoxResultado>
+            <TituloRel>Resultado Final</TituloRel>
 
-        <Modalize ref={modalizeRef} snapPoint={500} /*o quanto vai abrir na tela o modal*/>
-          <ContainerModal>
+            <Texto>Tamanho Total da Parede:</Texto>
 
-            <ModalTitulo>Resultado Final</ModalTitulo>
-            <ModalTexto>
-              Tamanho Total do Parede:
-            </ModalTexto>
-            <TextoResul> {totalParede} mts²</TextoResul>
-            <ModalTexto>
-              Quantidade Total do tijolos:
-            </ModalTexto>
-            <TextoResul> {totalTijolos} un</TextoResul>
-            <ModalTexto>
-              
-            </ModalTexto>
+            <TextoResul>{totalParede} mts²</TextoResul>
 
-          </ContainerModal>
-        </Modalize>
+            <Texto>Quantidade Total do tijolos:</Texto>
 
+            <TextoResul>{totalTijolos} un</TextoResul>
+          </BoxResultado>
+        </ScrollView>
       </Container>
     </TouchableWithoutFeedback>
   );
