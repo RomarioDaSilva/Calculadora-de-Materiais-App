@@ -19,21 +19,30 @@ import {
   HeaderTitulo,
   TextoResul,
   BoxResultado,
+  ViewImagem,
+  Img,
+  BoxImagem,
 } from './styles';
 
 export default function TelhaAmericana() {
-  const modalizeRef = useRef(null);
+  const [comp, setComp] = useState('');
+  const [larg, setLarg] = useState('');
+  const [resultado, setResultado] = useState(null);
 
-  function calcular() {
-    modalizeRef.current?.open();
-    Keyboard.dismiss();
-  }
-
-  const [larg, setLarg] = useState(0);
-  const [comp, setComp] = useState(0);
+  const comprimento = parseInt(comp).toFixed(2);
+  const largura = parseInt(larg).toFixed(2);
   const totalTelhado = (larg * comp).toFixed(2);
   const totalTelhas = totalTelhado * 13;
   const totalRipas = (totalTelhado * 3.8).toFixed(2);
+
+  function calcular() {
+    Keyboard.dismiss();
+    if (isNaN(parseFloat(larg)) || comp === '') {
+      alert('Preencha todos os campos');
+      return;
+    }
+    setResultado(comp, larg);
+  }
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -48,7 +57,7 @@ export default function TelhaAmericana() {
                 <Texto>Largura do telhado:</Texto>
                 <Input
                   value={larg}
-                  onChangeText={(larg) => setLarg(larg)}
+                  onChangeText={(text) => setLarg(text)}
                   placeholder="Mts"
                   keyboardType="numeric"
                   returnKeyType="next"
@@ -60,7 +69,7 @@ export default function TelhaAmericana() {
                 <Texto>Comprimento do telhado:</Texto>
                 <Input
                   value={comp}
-                  onChangeText={(comp) => setComp(comp)}
+                  onChangeText={(text) => setComp(text)}
                   placeholder="Mts"
                   keyboardType="numeric"
                   returnKeyType="next"
@@ -73,21 +82,30 @@ export default function TelhaAmericana() {
             </Botao>
           </Box>
 
-          <BoxResultado>
-            <TituloRel>Resultado Final</TituloRel>
+          {resultado && (
+            <BoxResultado>
+              <TituloRel>Resultado Final</TituloRel>
 
-            <Texto>Tamanho Total do telhado:</Texto>
+              <Texto>Telhado de</Texto>
+              <Texto>largura de {largura} mts</Texto>
 
-            <TextoResul> {totalTelhado} mts².</TextoResul>
+              <ViewImagem>
+                <BoxImagem>
+                  <Img source={require('../../images/TamanhoTelhado.png')} />
+                </BoxImagem>
+                <Texto>{comprimento} mts</Texto>
+              </ViewImagem>
 
-            <Texto>Quantidade Total do telhas:</Texto>
+              <Texto>Tamanho Total do telhado:</Texto>
+              <TextoResul>{totalTelhado} mts².</TextoResul>
 
-            <TextoResul> {totalTelhas} un.</TextoResul>
+              <Texto>Quantidade Total do telhas:</Texto>
+              <TextoResul>{totalTelhas} un.</TextoResul>
 
-            <Texto>Quantidade total de mts de ripas:</Texto>
-
-            <TextoResul> {totalRipas} mts².</TextoResul>
-          </BoxResultado>
+              <Texto>Quantidade total de mts de ripas:</Texto>
+              <TextoResul>{totalRipas} mts².</TextoResul>
+            </BoxResultado>
+          )}
         </ScrollView>
       </Container>
     </TouchableWithoutFeedback>

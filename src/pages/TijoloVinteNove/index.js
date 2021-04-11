@@ -21,18 +21,21 @@ import {
   BoxResultado,
 } from './styles';
 export default function TijoloVinteNove() {
+  const [comp, setComp] = useState('');
+  const [alt, setAlt] = useState('');
+  const [resultado, setResultado] = useState(null);
 
-  const modalizeRef = useRef(null);
-
-  function abrirModal() {
-    modalizeRef.current?.open();
-    Keyboard.dismiss()
-  }
-
-  const [comp, setComp] = useState(0);
-  const [alt, setAlt] = useState(0);
   const totalParede = (comp * alt).toFixed(2);
   const totalTijolos = (totalParede * 17.25).toFixed(0);
+
+  function calcular() {
+    Keyboard.dismiss();
+    if (isNaN(parseFloat(alt)) || comp === '') {
+      alert('Preencha todos os campos');
+      return;
+    }
+    setResultado(comp, alt);
+  }
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -49,7 +52,7 @@ export default function TijoloVinteNove() {
                 <Texto>Comprimento da parede: </Texto>
                 <Input
                   value={comp}
-                  onChangeText={(comp) => setComp(comp)}
+                  onChangeText={(text) => setComp(text)}
                   placeholder="Mts"
                   keyboardType="numeric"
                   returnKeyType="next"
@@ -61,7 +64,7 @@ export default function TijoloVinteNove() {
                 <Texto>Altura da parede: </Texto>
                 <Input
                   value={alt}
-                  onChangeText={(alt) => setAlt(alt)}
+                  onChangeText={(text) => setAlt(text)}
                   placeholder="Mts"
                   keyboardType="numeric"
                   returnKeyType="next"
@@ -69,21 +72,23 @@ export default function TijoloVinteNove() {
                 />
               </BoxInput>
             </SafeAreaView>
-            <Botao onPress={abrirModal}>
+            <Botao onPress={calcular}>
               <BotaoTexto>Calcular</BotaoTexto>
             </Botao>
           </Box>
-          <BoxResultado>
-            <TituloRel>Resultado Final</TituloRel>
+          {resultado && (
+            <BoxResultado>
+              <TituloRel>Resultado Final</TituloRel>
 
-            <Texto>Tamanho Total da Parede:</Texto>
+              <Texto>Tamanho Total da Parede:</Texto>
 
-            <TextoResul>{totalParede} mts²</TextoResul>
+              <TextoResul>{totalParede} mts²</TextoResul>
 
-            <Texto>Quantidade Total do tijolos:</Texto>
+              <Texto>Quantidade Total do tijolos:</Texto>
 
-            <TextoResul>{totalTijolos} un</TextoResul>
-          </BoxResultado>
+              <TextoResul>{totalTijolos} un</TextoResul>
+            </BoxResultado>
+          )}
         </ScrollView>
       </Container>
     </TouchableWithoutFeedback>

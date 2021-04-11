@@ -22,32 +22,37 @@ import {
 } from './styles';
 
 export default function TelhaColonial() {
-  const modalizeRef = useRef(null);
-
-  function calcular() {
-    modalizeRef.current?.open();
-    Keyboard.dismiss()
-  }
-  const [larg, setLarg] = useState(0);
-  const [comp, setComp] = useState(0);
+  const [comp, setComp] = useState('');
+  const [larg, setLarg] = useState('');
+  const [resultado, setResultado] = useState(null);
+  
   const totalTelhado = (larg * comp).toFixed(2);
   const totalTelhas = totalTelhado * 32;
   const totalRipas = (totalTelhado * 3.95).toFixed(2);
 
+  function calcular() {
+    Keyboard.dismiss();
+    if (isNaN(parseFloat(larg)) || comp === '') {
+      alert('Preencha todos os campos');
+      return;
+    }
+    setResultado(comp, larg);
+  }
+
   return (
-<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
         <Header />
         <HeaderTitulo>Telha Colonial</HeaderTitulo>
         <ScrollView>
           <Box>
             <SafeAreaView>
-            <Texto>Calcular tamanho do telhado em metros quadrados ²:</Texto>
+              <Texto>Calcular tamanho do telhado em metros quadrados ²:</Texto>
               <BoxInput>
                 <Texto>Largura do telhado:</Texto>
                 <Input
                   value={larg}
-                  onChangeText={(larg) => setLarg(larg)}
+                  onChangeText={(text) => setLarg(text)}
                   placeholder="Mts"
                   keyboardType="numeric"
                   returnKeyType="next"
@@ -59,7 +64,7 @@ export default function TelhaColonial() {
                 <Texto>Comprimento do telhado:</Texto>
                 <Input
                   value={comp}
-                  onChangeText={(comp) => setComp(comp)}
+                  onChangeText={(text) => setComp(text)}
                   placeholder="Mts"
                   keyboardType="numeric"
                   returnKeyType="next"
@@ -71,22 +76,23 @@ export default function TelhaColonial() {
               <BotaoTexto>Calcular</BotaoTexto>
             </Botao>
           </Box>
+          {resultado && (
+            <BoxResultado>
+              <TituloRel>Resultado Final</TituloRel>
 
-          <BoxResultado>
-            <TituloRel>Resultado Final</TituloRel>
+              <Texto>Total de metros do telhado:</Texto>
 
-            <Texto>Total de metros do telhado:</Texto>
+              <TextoResul> {totalTelhado} mts².</TextoResul>
 
-            <TextoResul> {totalTelhado} mts².</TextoResul>
+              <Texto>Quantidade Total do telhas:</Texto>
 
-            <Texto>Quantidade Total do telhas:</Texto>
+              <TextoResul> {totalTelhas} un.</TextoResul>
 
-            <TextoResul> {totalTelhas} un.</TextoResul>
+              <Texto>Quantidade total de mts de ripas:</Texto>
 
-            <Texto>Quantidade total de mts de ripas:</Texto>
-
-            <TextoResul> {totalRipas} mts².</TextoResul>
-          </BoxResultado>
+              <TextoResul> {totalRipas} mts².</TextoResul>
+            </BoxResultado>
+          )}
         </ScrollView>
       </Container>
     </TouchableWithoutFeedback>

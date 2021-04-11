@@ -12,7 +12,6 @@ import TelhaColonial from './src/pages/TelhaColonial';
 import TijoloVinteQuatro from './src/pages/TijoloVinteQuatro';
 import TijoloVinteNove from './src/pages/TijoloVinteNove';
 import TijoloDezenove from './src/pages/TijoloDezenove';
-import CalculoResul from './src/pages/CalculoResul';
 
 const Stack = createDrawerNavigator();
 
@@ -35,7 +34,6 @@ export default function App() {
         <Stack.Screen name="TijoloVinteNove" component={TijoloVinteNove} />
         <Stack.Screen name="TijoloDezenove" component={TijoloDezenove} />
         <Stack.Screen name="Tijolos" component={Tijolos} />
-        <Stack.Screen name="CalculoResul" component={CalculoResul} />
       </Stack.Navigator>
     </NavigationContainer>
   );
