@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, { useState} from 'react';
 import {
   SafeAreaView,
   Keyboard,
@@ -19,6 +19,10 @@ import {
   HeaderTitulo,
   TextoResul,
   BoxResultado,
+  ViewImagem,
+  Img,
+  BoxImagem,
+  ViewInfo,
 } from './styles';
 
 export default function TijoloDezenove() {
@@ -26,6 +30,8 @@ export default function TijoloDezenove() {
   const [alt, setAlt] = useState('');
   const [resultado, setResultado] = useState(null);
 
+  const comprimento = parseInt(comp).toFixed(2);
+  const altura = parseInt(alt).toFixed(2);
   const totalParede = (comp * alt).toFixed(2);
   const totalTijolos = (totalParede * 25).toFixed(0);
 
@@ -42,6 +48,11 @@ export default function TijoloDezenove() {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
         <Header />
+
+        <ViewInfo>
+          <Texto> M </Texto>
+        </ViewInfo>
+
         <HeaderTitulo>Tijolo 9 X 19 X 19</HeaderTitulo>
         <ScrollView>
           <Box>
@@ -81,6 +92,16 @@ export default function TijoloDezenove() {
             <BoxResultado>
               <TituloRel>Resultado Final</TituloRel>
 
+              <Texto>Tamanho da parede</Texto>
+              <Texto>Comprimento {comprimento} mts</Texto>
+
+              <ViewImagem>
+                <BoxImagem>
+                <Img source={require('../../images/ParedeTijolos.png')} />
+                </BoxImagem>
+                <Texto>{altura} mts</Texto>
+              </ViewImagem>
+       
               <Texto>Tamanho Total da Parede:</Texto>
 
               <TextoResul>{totalParede} mts²</TextoResul>

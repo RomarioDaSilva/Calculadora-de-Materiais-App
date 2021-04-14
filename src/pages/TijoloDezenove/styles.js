@@ -79,3 +79,28 @@ export const BoxResultado = styled.View`
   margin-bottom: 20px;
   padding-bottom: 20px;
 `;
+
+export const ViewImagem = styled.View`
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 90%;
+`;
+
+export const BoxImagem = styled.View`
+  border-color: #000;
+  border: 1px;
+  margin: 5px;
+
+`;
+
+export const Img = styled.Image`
+  height: 150px;
+  width: 250px;
+  margin-left: 10px;
+`;
+export const ViewInfo = styled.View`
+
+`;
+
+
