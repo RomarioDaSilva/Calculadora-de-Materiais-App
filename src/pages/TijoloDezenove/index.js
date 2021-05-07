@@ -91,16 +91,6 @@ export default function TijoloDezenove() {
           {resultado && (
             <BoxResultado>
               <TituloRel>Resultado Final</TituloRel>
-
-              <Texto>Tamanho da parede</Texto>
-              <Texto>Comprimento {comprimento} mts</Texto>
-
-              <ViewImagem>
-                <BoxImagem>
-                <Img source={require('../../images/ParedeTijolos.png')} />
-                </BoxImagem>
-                <Texto>{altura} mts</Texto>
-              </ViewImagem>
        
               <Texto>Tamanho Total da Parede:</Texto>
 

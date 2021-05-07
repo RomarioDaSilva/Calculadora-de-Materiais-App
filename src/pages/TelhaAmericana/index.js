@@ -86,16 +86,6 @@ export default function TelhaAmericana() {
             <BoxResultado>
               <TituloRel>Resultado Final</TituloRel>
 
-              <Texto>Telhado de</Texto>
-              <Texto>largura de {largura} mts</Texto>
-
-              <ViewImagem>
-                <BoxImagem>
-                  <Img source={require('../../images/TamanhoTelhado.png')} />
-                </BoxImagem>
-                <Texto>{comprimento} mts</Texto>
-              </ViewImagem>
-
               <Texto>Tamanho Total do telhado:</Texto>
               <TextoResul>{totalTelhado} mts².</TextoResul>
 

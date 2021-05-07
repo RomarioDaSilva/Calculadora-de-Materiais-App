@@ -11,17 +11,17 @@ import {
   Texto,
 } from './styles';
 
-export default function Telhas() {
+export default function TelhaFibrocimento() {
   const navigation = useNavigation();
 
-  function irTelhaAmericanas() {
-    navigation.navigate('Telha Americana');
+  function irTelha244() {
+    navigation.navigate('Telha 244');
   }
-  function irTelhaColonial() {
-    navigation.navigate('Telha Colonial');
+  function irTelha183() {
+    navigation.navigate('Telha 183');
   }
-  function irTelhaFibrocimento() {
-    navigation.navigate('Telha Fibrocimento');
+  function irTelha153() {
+    navigation.navigate('Telha 153');
   }
 
 return (
@@ -31,26 +31,26 @@ return (
     <ContainerBox>
       <ScrollView>
       <ContainerBox>
-        <Box onPress={irTelhaAmericanas}>
-          <Imagen
-            source={require('../../images/TelhaAmericana.png')}
-            resizeMode="contain"
-          />
-          <Texto>Telha Americana</Texto>
-        </Box>
-        <Box onPress={irTelhaColonial}>
-          <Imagen
-            source={require('../../images/TelhaColonial.png')}
-            resizeMode="contain"
-          />
-          <Texto>Telha Colonial</Texto>
-        </Box>
-        <Box onPress={irTelhaFibrocimento}>
+        <Box onPress={irTelha244}>
           <Imagen
             source={require('../../images/TelhaFibrocimento.jpeg')}
             resizeMode="contain"
           />
-          <Texto>Telha Colonial</Texto>
+          <Texto>Telha 2,44 x 1,10</Texto>
+        </Box>
+        <Box onPress={irTelha183}>
+          <Imagen
+            source={require('../../images/TelhaFibrocimento.jpeg')}
+            resizeMode="contain"
+          />
+          <Texto>Telha 1,83 x 1,10</Texto>
+        </Box>
+        <Box onPress={irTelha153}>
+          <Imagen
+            source={require('../../images/TelhaFibrocimento.jpeg')}
+            resizeMode="contain"
+          />
+          <Texto>Telha 1,53 x 1,10</Texto>
         </Box>
       </ContainerBox>
       </ScrollView>

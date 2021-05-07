@@ -12,6 +12,10 @@ import TelhaColonial from './src/pages/TelhaColonial';
 import TijoloVinteQuatro from './src/pages/TijoloVinteQuatro';
 import TijoloVinteNove from './src/pages/TijoloVinteNove';
 import TijoloDezenove from './src/pages/TijoloDezenove';
+import TelhaFibrocimento from './src/pages/TelhaFibrocimento';
+import TelhaFibro244 from './src/pages/TelhaFibro244';
+import TelhaFibro183 from './src/pages/TelhaFibro183';
+import TelhaFibro153 from './src/pages/TelhaFibro153';
 
 const Stack = createDrawerNavigator();
 
@@ -24,15 +28,19 @@ export default function App() {
           headerStyle: '#000'
         }}
       >
-        <Stack.Screen name="TelaInicial" component={TelaInicial} />
+        <Stack.Screen name="Tela Inicial" component={TelaInicial} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Telhas" component={Telhas} />
+        <Stack.Screen name="Telha Americana" component={TelhaAmericana} />
+        <Stack.Screen name="Telha Colonial" component={TelhaColonial} />
+        <Stack.Screen name="Telha Fibrocimento" component={TelhaFibrocimento} />
+        <Stack.Screen name="Telha 244" component={TelhaFibro244} />
+        <Stack.Screen name="Telha 183" component={TelhaFibro183} />
+        <Stack.Screen name="Telha 153" component={TelhaFibro153} />
         <Stack.Screen name="Laje" component={Laje} />
-        <Stack.Screen name="TelhaAmericana" component={TelhaAmericana} />
-        <Stack.Screen name="TelhaColonial" component={TelhaColonial} />
-        <Stack.Screen name="TijoloVinteQuatro" component={TijoloVinteQuatro} />
-        <Stack.Screen name="TijoloVinteNove" component={TijoloVinteNove} />
-        <Stack.Screen name="TijoloDezenove" component={TijoloDezenove} />
+        <Stack.Screen name="Tijolo Vinte Quatro" component={TijoloVinteQuatro} />
+        <Stack.Screen name="Tijolo Vinte Nove" component={TijoloVinteNove} />
+        <Stack.Screen name="Tijolo Dezenove" component={TijoloDezenove} />
         <Stack.Screen name="Tijolos" component={Tijolos} />
       </Stack.Navigator>
     </NavigationContainer>

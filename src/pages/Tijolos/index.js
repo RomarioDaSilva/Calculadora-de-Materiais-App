@@ -8,15 +8,15 @@ export default function Tijolos() {
   const navigation = useNavigation();
 
   function irVinteQuatro() {
-    navigation.navigate('TijoloVinteQuatro');
+    navigation.navigate('Tijolo Vinte Quatro');
   }
 
   function irVinteNove() {
-    navigation.navigate('TijoloVinteNove');
+    navigation.navigate('Tijolo Vinte Nove');
   }
 
   function irDezenove() {
-    navigation.navigate('TijoloDezenove');
+    navigation.navigate('Tijolo Dezenove');
   }
 
   return (

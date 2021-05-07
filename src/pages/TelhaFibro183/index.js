@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   SafeAreaView,
   Keyboard,
@@ -24,20 +24,15 @@ import {
   BoxImagem,
 } from './styles';
 
-export default function Laje() {
+export default function TelhaFibro183() {
   const [comp, setComp] = useState('');
   const [larg, setLarg] = useState('');
   const [resultado, setResultado] = useState(null);
 
   const comprimento = parseInt(comp).toFixed(2);
   const largura = parseInt(larg).toFixed(2);
-  const totalLaje = (comp * larg).toFixed(2);
-  const vigas = (comp / 0.4).toFixed(0);
-  const isopor = (totalLaje * 2.25).toFixed(0);
-  const barras = (totalLaje / 3).toFixed(0);
-  const traco = totalLaje / 2.5;
-  const carrinho = traco * 2;
-  const totalQuant = (carrinho / 18).toFixed(2);
+  const totalTelhado = (larg * comp).toFixed(2);
+  const totalTelhas = totalTelhado / 1.73;
 
   function calcular() {
     Keyboard.dismiss();
@@ -52,13 +47,13 @@ export default function Laje() {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
         <Header />
-        <HeaderTitulo>Laje de EPS(isopor)</HeaderTitulo>
+        <HeaderTitulo>Telha Fibrocimento 1,83 x 1,10</HeaderTitulo>
         <ScrollView>
           <Box>
             <SafeAreaView>
-              <Texto>Valores para calcular o tamanho de uma laje basica</Texto>
+              <Texto>Calcular tamanho do telhado em metros quadrados ²:</Texto>
               <BoxInput>
-                <Texto>largura da laje: (viga) </Texto>
+                <Texto>Largura do telhado:</Texto>
                 <Input
                   value={larg}
                   onChangeText={(text) => setLarg(text)}
@@ -70,7 +65,7 @@ export default function Laje() {
               </BoxInput>
 
               <BoxInput>
-                <Texto>Comprimento da laje:{'\n'} "lado oposto a viga" </Texto>
+                <Texto>Comprimento do telhado:</Texto>
                 <Input
                   value={comp}
                   onChangeText={(text) => setComp(text)}
@@ -90,35 +85,12 @@ export default function Laje() {
             <BoxResultado>
               <TituloRel>Resultado Final</TituloRel>
 
-              <Texto>
-                Laje de {largura} x {comprimento}
-              </Texto>
-              <Texto>viga com {largura} mts</Texto>
+              <Texto>Tamanho Total do telhado:</Texto>
+              <TextoResul>{totalTelhado} mts²</TextoResul>
 
-              <Texto>Tamanho Total da laje:</Texto>
-              <TextoResul>{totalLaje} mts².</TextoResul>
+              <Texto>Quantidade Total do telhas:</Texto>
+              <TextoResul>{totalTelhas} un</TextoResul>
 
-              <Texto>Quantidade de vigas:</Texto>
-              <TextoResul>
-                {vigas} vigas com {largura} mts.
-              </TextoResul>
-
-              <Texto>Quantidade de isopor:</Texto>
-              <TextoResul>{isopor} placas de 0,30x0,7x1,00.</TextoResul>
-
-              <Texto>
-                Quantidade de barras ferro para esteira de 40cmx40cm:
-              </Texto>
-              <TextoResul>{barras} com 12mts</TextoResul>
-
-              <Texto>Quantidade de cimento:</Texto>
-              <TextoResul>{traco} sacos (50kg)</TextoResul>
-
-              <Texto>Quantidade de areia:</Texto>
-              <TextoResul>{totalQuant} mts³</TextoResul>
-
-              <Texto>Quantidade de brita:</Texto>
-              <TextoResul>{totalQuant} mts³</TextoResul>
             </BoxResultado>
           )}
         </ScrollView>
